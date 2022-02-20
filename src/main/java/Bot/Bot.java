@@ -1,6 +1,7 @@
 package Bot;
 
 import Service.PDFConvertor;
+import TimeRepeater.TimeRepeater;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -34,7 +35,7 @@ public class Bot extends TelegramLongPollingBot {
         Bot bot = new Bot(new DefaultBotOptions());
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         telegramBotsApi.registerBot(bot);
-//        Repeater.startTimer();
+        TimeRepeater.startTimer();
     }
 
     @Override
