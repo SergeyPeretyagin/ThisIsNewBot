@@ -21,12 +21,13 @@ import java.util.List;
 public class Bot extends TelegramLongPollingBot {
 
     private static String BOT_TOKEN = "5145412598:AAHikpj4anWuxM4g4nPped7AOyuZQPEdyJo";
-    private static String BOT_NAME = "@wodnyi_bot";
+    private static String BOT_NAME = " @RedCommandBot";
     //String name = "1399019417";
     private static List<String> chatIdList = new ArrayList<>();
 
     public Bot(DefaultBotOptions defaultBotOptions) {
     }
+
 
     public static void start() throws TelegramApiException {
         Bot bot = new Bot(new DefaultBotOptions());
@@ -103,7 +104,7 @@ public class Bot extends TelegramLongPollingBot {
     }
     public void helloMessage(Message message){
         try {
-            execute(SendMessage.builder().chatId(message.getChatId().toString()).text("Добро пожаловать в красную команду "+ message.getContact().toString()).build());
+            execute(SendMessage.builder().chatId(message.getChatId().toString()).text("Добро пожаловать в красную команду ").build());
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
