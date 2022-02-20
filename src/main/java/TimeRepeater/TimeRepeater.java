@@ -34,7 +34,8 @@ public class TimeRepeater {
             @Override
             public void run() {
                 System.out.println("TimerTask начал свое выполнение в:" + new Date());
-                file = PDFConvertor.createPDF();
+                PDFConvertor pdfConvertor = new PDFConvertor();
+                file = pdfConvertor.createPDF();
                 Bot bot = new Bot(new DefaultBotOptions());
                 try {
                     bot.sendFile(file);
