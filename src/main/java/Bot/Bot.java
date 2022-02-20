@@ -105,8 +105,7 @@ public class Bot extends TelegramLongPollingBot {
     }
     public void helloMessage(Message message){
         try {
-            execute(SendMessage.builder().chatId(message.getChatId().toString()).text("Добро пожаловать в красную команду "+
-                    message.getChat().getFirstName()).build());
+            execute(SendMessage.builder().chatId(message.getChatId().toString()).text("Добро пожаловать в красную команду "+ message.getChat().getFirstName()+"!").build());
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
