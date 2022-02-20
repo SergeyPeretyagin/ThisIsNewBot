@@ -21,14 +21,16 @@ import java.util.Map;
 
 public class PDFConvertor {
     static Map<String, List<String>> usersMap=new HashMap<>();
+    private static String PATH_FILE = "/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/newPDF.pdf";
     static List<User> users = new ArrayList<>();
 
-    public static File createPDF() {
-        File file = new File("/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/newPDF.pdf");
+    public File createPDF() {
+        File file = new File(PATH_FILE);
 //        File file = new File("newPDF.pdf");
         try {
-            users = JSConvertor.parse();
-            PdfWriter pdfWriter = new PdfWriter("/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/newPDF.pdf");
+            JSConvertor jsConvertor = new JSConvertor();
+            users = jsConvertor.parse();
+            PdfWriter pdfWriter = new PdfWriter(PATH_FILE);
             float[] columnWidth = {200F, 100F, 200F};
             PdfDocument pdfDocument = new PdfDocument(pdfWriter);
             pdfDocument.addNewPage();

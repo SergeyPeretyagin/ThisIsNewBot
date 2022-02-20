@@ -17,18 +17,15 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Bot extends TelegramLongPollingBot {
 
     private static String BOT_TOKEN = "5145412598:AAHikpj4anWuxM4g4nPped7AOyuZQPEdyJo";
-    private static String BOT_NAME = " @RedCommandBot";
+    private static String BOT_NAME = "@RedCommandBot";
     //String name = "1399019417";
 //    private static List<String> chatIdList = new ArrayList<>();
-    private static Set<String> chatIdList = new TreeSet<>();
+    private static Set<String> chatIdList = new HashSet<>();
 
     public Bot(DefaultBotOptions defaultBotOptions) {
     }
@@ -95,7 +92,8 @@ public class Bot extends TelegramLongPollingBot {
         String chatId = callbackQuery.getMessage().getChatId().toString();
         if (callbackQuery.getData().equals("Yes")) {
             execute(SendMessage.builder().chatId(chatId).text("Сейчас получишь").build());
-            File file = PDFConvertor.createPDF();
+            PDFConvertor pdfConvertor = new PDFConvertor();
+            File file = pdfConvertor.createPDF();
 //            File file = new File("/opt/tomcat/latest/webapps/newbot/source/newPDF.pdf");
 //            InputFile inputFile = new InputFile(file);
 //            execute(SendDocument.builder().chatId(chatId).document(inputFile).build());

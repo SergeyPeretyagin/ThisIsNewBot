@@ -13,10 +13,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class JSConvertor {
-    public static List<User> parse() throws IOException {
+    private static String PATH_JSON = "/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/output.json";
+
+    public List<User> parse() throws IOException {
         List<User> listUser = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
-        File file = new File("/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/output.json");
+        File file = new File(PATH_JSON);
 //        File file = new File("output.json");
         try (FileReader fileReader = new FileReader(file)) {
             try {
