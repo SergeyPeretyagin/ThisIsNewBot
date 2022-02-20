@@ -24,11 +24,11 @@ public class PDFConvertor {
     static List<User> users = new ArrayList<>();
 
     public static File createPDF() {
-        File file = new File("/opt/tomcat/latest/webapps/newbot/source/newPDF.pdf");
+        File file = new File("/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/newPDF.pdf");
 //        File file = new File("newPDF.pdf");
         try {
             users = JSConvertor.parse();
-            PdfWriter pdfWriter = new PdfWriter("/opt/tomcat/latest/webapps/newbot/source/newPDF.pdf");
+            PdfWriter pdfWriter = new PdfWriter("/opt/tomcat/apache-tomcat-9.0.58/webapps/newbot/source/newPDF.pdf");
             float[] columnWidth = {200F, 100F, 200F};
             PdfDocument pdfDocument = new PdfDocument(pdfWriter);
             pdfDocument.addNewPage();
