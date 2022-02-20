@@ -17,10 +17,10 @@ public class TimeRepeater {
         long day = 86_400_000L;
         int sec = 100000;
 
-        if(Calendar.getInstance().getTime().getHours()<13){
+        if(Calendar.getInstance().getTime().getHours()<17){
 //       if(Calendar.getInstance().getTime().getHours()<=23 && Calendar.getInstance().getTime().getMinutes()<=57){
-            startCalendar.set(Calendar.HOUR_OF_DAY,11);
-            startCalendar.set(Calendar.MINUTE,40);
+            startCalendar.set(Calendar.HOUR_OF_DAY,17);
+            startCalendar.set(Calendar.MINUTE,00);
             startCalendar.set(Calendar.SECOND,00);
         }else {
             startCalendar.set(Calendar.DATE,Calendar.getInstance().getTime().getDate()+1);
@@ -44,7 +44,7 @@ public class TimeRepeater {
                 System.out.println("TimerTask закончил свое выполнение в:" + new Date());
             }
         };
-        timer.scheduleAtFixedRate(timerTask,startCalendar.getTime(),sec );
+        timer.scheduleAtFixedRate(timerTask,startCalendar.getTime(),day );
 
     }
 }
