@@ -1,5 +1,6 @@
 package Bot;
 
+import Service.PDFConvertor;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -90,9 +91,8 @@ public class Bot extends TelegramLongPollingBot {
         String chatId = callbackQuery.getMessage().getChatId().toString();
         if (callbackQuery.getData().equals("Yes")) {
             execute(SendMessage.builder().chatId(chatId).text("Сейчас получишь").build());
-//            File file = PDFConverter.createPDF();
-//            File file = new File("D:\\Example\\newPostgresDemo\\userManagementApplication\\TeLe\\newPDF.pdf");
-            File file = new File("/opt/tomcat/latest/webapps/newbot/source/newPDF.pdf");
+            File file = PDFConvertor.createPDF();
+//            File file = new File("/opt/tomcat/latest/webapps/newbot/source/newPDF.pdf");
 //            InputFile inputFile = new InputFile(file);
 //            execute(SendDocument.builder().chatId(chatId).document(inputFile).build());
             if (file.isFile())

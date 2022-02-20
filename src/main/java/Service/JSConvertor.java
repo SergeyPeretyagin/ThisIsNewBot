@@ -16,7 +16,7 @@ public class JSConvertor {
     public static List<User> parse() throws IOException {
         List<User> listUser = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
-        File file = new File("/opt/tomcat/latest/webapps/botexample/WEB-INF/source/output.json");
+        File file = new File("/opt/tomcat/latest/webapps/newbot/source/output.json");
 //        File file = new File("output.json");
         try (FileReader fileReader = new FileReader(file)) {
             try {
@@ -34,7 +34,7 @@ public class JSConvertor {
                     System.out.println(listUser);
                 }
                 Collections.sort(listUser);
-//                PDFConverter.groupUsers(listUser);
+                PDFConvertor.groupUsers(listUser);
             } catch (Exception e) {
                 e.printStackTrace();
             }
