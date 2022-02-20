@@ -110,7 +110,7 @@ public class Bot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-        if (!chatIdList.contains(message.getText())){
+        if (!chatIdList.contains(message.getChatId().toString())){
             chatIdList.add(message.getChatId().toString());
         }
     }
